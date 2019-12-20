@@ -1,0 +1,12 @@
+server:
+  port: 8090
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/person?serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 131452
+    username: root
+  devtools:
+    restart:
+      additional-exclude: resources/**,static/**,templates/**

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.employee.manager.mapper.EmployeeMapper">
+    <select id="getEmployeeByPage" resultType="cn.employee.manager.dto.EmployeeDTO">
+        SELECT
+          e.`id`,
+          e.`password`,
+          e.`name`,
+          e.`authority`,
+          e.`sex`,
+          e.`birthday`,
+          d.`name` AS department,  #部门
+          j.`description` AS job,  # 工作名称
+          ed.`description` AS eduLevel,  #学历
+          e.`spcialty`,
+          e.`address`,
+          e.`tel`,
+          e.`email`,
+          e.`state`,
+          e.`remark`
+        FROM
+          employee e,
+          department d,
+          edu_level ed,
+          job j
+        WHERE e.`department` = d.`id`
+          AND e.`job` = j.`code`
+          AND e.`edu_level` = ed.`code`
+    </select>
+</mapper>

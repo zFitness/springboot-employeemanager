@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: dev
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: mybatis-mappers/*.xml
