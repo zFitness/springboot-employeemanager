@@ -2,7 +2,6 @@ package cn.employee.manager.service.impl;
 
 import cn.employee.manager.dto.EmployeeDTO;
 import cn.employee.manager.dto.result.Result;
-import cn.employee.manager.entity.Employee;
 import cn.employee.manager.mapper.EmployeeMapper;
 import cn.employee.manager.service.EmployeeService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -31,5 +30,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         } else {
             return Result.success();
         }
+    }
+
+    @Override
+    public EmployeeDTO getUserById(Integer id) {
+        return employeeMapper.getUserById(id);
     }
 }

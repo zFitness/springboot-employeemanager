@@ -1,18 +1,15 @@
 package cn.employee.manager.mapper;
 
-import cn.employee.manager.dto.DepartmentDTO;
-import cn.employee.manager.entity.Department;
+import cn.employee.manager.entity.EduLevel;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 /**
+ * 操作学历表
  * @author zfitness
  */
 @Mapper
 @Repository
-public interface DepartmentMapper extends BaseMapper<Department> {
-    List<DepartmentDTO> selectAll();
+public interface EduLevelMapper extends BaseMapper<EduLevel> {
 }

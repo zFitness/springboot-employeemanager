@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.employee.manager.mapper.DepartmentMapper">
+<!--    自定义结果集-->
+<!--    <resultMap id="DepartmentDTO" type="cn.employee.manager.dto.DepartmentDTO">-->
+    <!--        <id column="dept_id" property="id"></id>-->
+    <!--        <result column="dept_name" property="name"></result>-->
+    <!--        <result column="dept_intro" property="intro"></result>-->
+    <!--        <association property="manager" javaType="cn.employee.manager.m"></association>-->
+    <!--    </resultMap>-->
+        <select id="selectAll" resultType="cn.employee.manager.dto.DepartmentDTO">
+            select * from department
+        </select>
+</mapper>
