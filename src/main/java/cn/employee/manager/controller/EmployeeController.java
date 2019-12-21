@@ -2,7 +2,7 @@ package cn.employee.manager.controller;
 
 import cn.employee.manager.dto.EmployeeDTO;
 import cn.employee.manager.dto.result.Result;
-import cn.employee.manager.entity.EduLevel;
+import cn.employee.manager.entity.Employee;
 import cn.employee.manager.mapper.EduLevelMapper;
 import cn.employee.manager.service.DepartmentService;
 import cn.employee.manager.service.EmployeeService;
@@ -10,6 +10,8 @@ import cn.employee.manager.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,6 +31,15 @@ public class EmployeeController {
     @Autowired
     private EduLevelMapper eduLevelMapper;
 
+    @GetMapping("/hello")
+    public void hello(HttpServletResponse response) {
+        try {
+            response.sendRedirect("http://www.baidu.com");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @GetMapping("/list")
     public Result list(@RequestParam(name = "current", required = false, defaultValue = "1") Integer current,
                        @RequestParam(name = "size", required = false, defaultValue = "10") Integer size) {
@@ -38,6 +49,12 @@ public class EmployeeController {
     public EmployeeDTO getUserById(@RequestParam(name = "id") Integer id) {
         return employeeService.getUserById(id);
     }
+
+    @GetMapping("/add")
+    public EmployeeDTO addUser(Employee employee) {
+        return null;
+    }
+
     @GetMapping("/delete")
     public Result deleteEmployeeById(@RequestParam(name = "id") Integer id) {
         return employeeService.deleteEmployeeById(id);

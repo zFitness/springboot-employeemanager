@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.employee.manager.mapper.PersonnelMapper">
+    <!--分页查询员工信息-->
+    <select id="getPersonnelPage" resultType="cn.employee.manager.dto.PersonnelDTO">
+       SELECT
+          p.`id` AS id,
+          e.`id` AS userId,
+          e.`name` AS username,
+          pc.`description`,
+          p.`time` ,
+          p.`description` AS detail
+        FROM
+          personnel p,
+          employee e,
+          personnel_change pc
+        WHERE p.`person` = e.`id`
+          AND p.`change` = pc.`code`
+    </select>
+    <!-- 查询一个员工信息 -->
+
+</mapper>
