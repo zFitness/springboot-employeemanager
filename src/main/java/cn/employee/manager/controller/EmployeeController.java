@@ -7,6 +7,7 @@ import cn.employee.manager.mapper.EduLevelMapper;
 import cn.employee.manager.service.DepartmentService;
 import cn.employee.manager.service.EmployeeService;
 import cn.employee.manager.service.JobService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/employee")
 @CrossOrigin
+@Slf4j
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
@@ -50,9 +52,10 @@ public class EmployeeController {
         return employeeService.getUserById(id);
     }
 
-    @GetMapping("/add")
-    public EmployeeDTO addUser(Employee employee) {
-        return null;
+    @PostMapping("/add")
+    public Map<String, Object> addUser(@RequestBody Employee employee) {
+        log.info(employee.toString());
+        return employeeService.add(employee);
     }
 
     @GetMapping("/delete")

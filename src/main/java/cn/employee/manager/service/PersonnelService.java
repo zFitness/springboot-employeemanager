@@ -1,6 +1,7 @@
 package cn.employee.manager.service;
 
 import cn.employee.manager.dto.result.Result;
+import cn.employee.manager.entity.Personnel;
 
 
 /**
@@ -15,4 +16,10 @@ public interface PersonnelService {
      * @return
      */
     Result list(Integer current, Integer size);
+
+    /**
+     * 新增一条人事记录
+     * @param personnel
+     */
+    void add(Personnel personnel);
 }

@@ -17,7 +17,7 @@
           employee e,
           personnel_change pc
         WHERE p.`person` = e.`id`
-          AND p.`change` = pc.`code`
+          AND p.`change_id` = pc.`code`
     </select>
     <!-- 查询一个员工信息 -->
 
