@@ -4,6 +4,7 @@ import cn.employee.manager.dto.EmployeeDTO;
 import cn.employee.manager.dto.result.Result;
 import cn.employee.manager.entity.Employee;
 import cn.employee.manager.mapper.EduLevelMapper;
+import cn.employee.manager.mapper.EmployeeMapper;
 import cn.employee.manager.service.DepartmentService;
 import cn.employee.manager.service.EmployeeService;
 import cn.employee.manager.service.JobService;
@@ -32,26 +33,46 @@ public class EmployeeController {
     private JobService jobService;
     @Autowired
     private EduLevelMapper eduLevelMapper;
-
-    @GetMapping("/hello")
-    public void hello(HttpServletResponse response) {
-        try {
-            response.sendRedirect("http://www.baidu.com");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @Autowired
+    private EmployeeMapper employeeMapper;
+    /**
+     * 搜索接口
+     */
+    @GetMapping("/search")
+    public Result search(@RequestParam(name = "name", required = false,defaultValue = "") String name,
+                         @RequestParam(name = "current", required = false, defaultValue = "1") Integer current,
+                         @RequestParam(name = "size", required = false, defaultValue = "10") Integer size) {
+        return employeeService.list(current, size, name);
     }
 
+    /**
+     * 分页查询接口
+     *
+     * @param current
+     * @param size
+     * @return
+     */
     @GetMapping("/list")
     public Result list(@RequestParam(name = "current", required = false, defaultValue = "1") Integer current,
                        @RequestParam(name = "size", required = false, defaultValue = "10") Integer size) {
-        return employeeService.list(current, size);
+        return employeeService.list(current, size, null);
     }
+
     @GetMapping("/getUserById")
-    public EmployeeDTO getUserById(@RequestParam(name = "id") Integer id) {
+    public EmployeeDTO getUserAllInfoById(@RequestParam(name = "id") Integer id) {
         return employeeService.getUserById(id);
     }
 
+    @GetMapping("/getEmployeeById")
+    public Employee getUserById(@RequestParam(name = "id") Integer id) {
+        return employeeMapper.selectById(id);
+    }
+    /**
+     * 增加员工接口
+     *
+     * @param employee
+     * @return
+     */
     @PostMapping("/add")
     public Map<String, Object> addUser(@RequestBody Employee employee) {
         log.info(employee.toString());
@@ -64,7 +85,19 @@ public class EmployeeController {
     }
 
     /**
+     * 辞退员工
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/dismiss")
+    public Map<String, Object> dismissEmployeeById(@RequestParam(name = "id") Integer id) {
+        return employeeService.dismissEmployeeById(id);
+    }
+
+    /**
      * 得到所以工作，部门，学历信息
+     *
      * @return
      */
     @GetMapping("/otherInfo")

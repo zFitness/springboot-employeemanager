@@ -29,6 +29,9 @@
         WHERE e.`department` = d.`id`
           AND e.`job` = j.`code`
           AND e.`edu_level` = ed.`code`
+          <if test="name != null">
+              and e.name like concat('%', #{name}, '%')
+          </if>
     </select>
     <!-- 查询一个员工信息 -->
     <select id="getUserById" resultType="cn.employee.manager.dto.EmployeeDTO" parameterType="integer">

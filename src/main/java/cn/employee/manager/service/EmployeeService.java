@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface EmployeeService {
 
-    Result list(Integer current, Integer size);
+    Result list(Integer current, Integer size, String name);
 
     Result deleteEmployeeById(Integer id);
 
@@ -20,4 +20,6 @@ public interface EmployeeService {
      * @return
      */
     Map<String, Object> add(Employee employee);
+
+    Map<String, Object> dismissEmployeeById(Integer id);
 }

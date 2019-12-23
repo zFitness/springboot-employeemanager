@@ -26,9 +26,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     private PersonnelMapper personnelMapper;
 
     @Override
-    public Result list(Integer current, Integer size) {
+    public Result list(Integer current, Integer size, String name) {
         Page<EmployeeDTO> page = new Page<>(current, size);
-        return Result.success(employeeMapper.getEmployeeByPage(page));
+        return Result.success(employeeMapper.getEmployeeByPage(page, name));
     }
 
     @Override
@@ -71,5 +71,25 @@ public class EmployeeServiceImpl implements EmployeeService {
             map.put("msg", "插入失败了");
             return map;
         }
+    }
+
+    @Override
+    public Map<String, Object> dismissEmployeeById(Integer id) {
+        //先查询出员工
+        Employee employee = employeeMapper.selectById(id);
+        //改变员工状态
+        employee.setState("F");
+        employeeMapper.updateById(employee);
+        //添加一条人事变动记录
+        Personnel personnel = new Personnel();
+        personnel.setChangeId(2);
+        personnel.setPerson(employee.getId());
+        personnel.setTime(new Date());
+        personnel.setDescription("删库跑路了");
+        personnelMapper.insert(personnel);
+        Map<String, Object> map = new HashMap<>();
+        map.put("code", 200);
+        map.put("message", "辞退成功");
+        return map;
     }
 }

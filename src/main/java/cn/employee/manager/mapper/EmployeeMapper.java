@@ -21,7 +21,7 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
      * @param page
      * @return
      */
-    IPage<EmployeeDTO> getEmployeeByPage(Page page);
+    IPage<EmployeeDTO> getEmployeeByPage(Page page, @Param("name") String name);
 
     /**
      * 根据id查询员工
