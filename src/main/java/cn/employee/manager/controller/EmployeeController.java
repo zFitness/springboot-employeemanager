@@ -12,8 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,11 +56,21 @@ public class EmployeeController {
         return employeeService.list(current, size, null);
     }
 
+    /**
+     * 根据id获取员工具体信息
+     * @param id
+     * @return
+     */
     @GetMapping("/getUserById")
     public EmployeeDTO getUserAllInfoById(@RequestParam(name = "id") Integer id) {
         return employeeService.getUserById(id);
     }
 
+    /**
+     * 根据员工获取信息
+     * @param id
+     * @return
+     */
     @GetMapping("/getEmployeeById")
     public Employee getUserById(@RequestParam(name = "id") Integer id) {
         return employeeMapper.selectById(id);
@@ -79,12 +87,22 @@ public class EmployeeController {
         return employeeService.add(employee);
     }
 
+    /**
+     * 更新用户
+     * @param employee
+     * @return
+     */
     @PostMapping("/update")
     public Map<String, Object> updateUser(@RequestBody Employee employee) {
         log.info(employee.toString());
         return employeeService.update(employee);
     }
 
+    /**
+     * 删除用户
+     * @param id
+     * @return
+     */
     @GetMapping("/delete")
     public Result deleteEmployeeById(@RequestParam(name = "id") Integer id) {
         return employeeService.deleteEmployeeById(id);

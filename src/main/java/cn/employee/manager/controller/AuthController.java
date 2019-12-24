@@ -5,6 +5,7 @@ import cn.employee.manager.dto.result.ResponseCode;
 import cn.employee.manager.dto.result.Result;
 import cn.employee.manager.entity.Employee;
 import cn.employee.manager.service.AuthService;
+import cn.employee.manager.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +30,8 @@ public class AuthController {
     @PostMapping("/login")
     public Result login(@RequestParam(name = "email") String email,
                         @RequestParam(name = "password") String password) {
-        List<Employee> user = authService.login(email, password);
+        //密码加密
+        List<Employee> user = authService.login(email, MD5Util.getMD5(password, 11));
 
         if (user == null || user.size() == 0) {
             return Result.failure(ResponseCode.USER_NOT_FOUND);

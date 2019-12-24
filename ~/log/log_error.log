@@ -229,3 +229,21 @@ Action:
 
 Consider defining a bean of type 'cn.employee.manager.service.JobService' in your configuration.
 
+2019-12-24 14:08:03.293 [restartedMain] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field employeeService in cn.employee.manager.controller.EmployeeController required a bean of type 'cn.employee.manager.service.EmployeeService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'cn.employee.manager.service.EmployeeService' in your configuration.
+

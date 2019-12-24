@@ -15,6 +15,10 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
+    /**
+     * 查询所以部门
+     * @return
+     */
     @GetMapping("/list")
     public Result list() {
         return Result.success(departmentService.selectAll());

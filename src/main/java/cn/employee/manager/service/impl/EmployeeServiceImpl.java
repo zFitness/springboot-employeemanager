@@ -9,6 +9,7 @@ import cn.employee.manager.mapper.EmployeeMapper;
 import cn.employee.manager.mapper.JobMapper;
 import cn.employee.manager.mapper.PersonnelMapper;
 import cn.employee.manager.service.EmployeeService;
+import cn.employee.manager.util.MD5Util;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,12 +32,24 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private JobMapper jobMapper;
 
+    /**
+     * 分页查询所以员工
+     * @param current
+     * @param size
+     * @param name
+     * @return
+     */
     @Override
     public Result list(Integer current, Integer size, String name) {
         Page<EmployeeDTO> page = new Page<>(current, size);
         return Result.success(employeeMapper.getEmployeeByPage(page, name));
     }
 
+    /**
+     * 删除员工
+     * @param id
+     * @return
+     */
     @Override
     public Result deleteEmployeeById(Integer id) {
         int i = employeeMapper.deleteById(id);
@@ -52,10 +65,18 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeMapper.getUserById(id);
     }
 
+    /**
+     * 增加员工
+     * @param employee
+     * @return
+     */
     @Override
     public Map<String, Object> add(Employee employee) {
         //初始化默认密码
-        employee.setPassword("123");
+        String password = "123";
+        //加密
+        String md5Password = MD5Util.getMD5(password, 11);
+        employee.setPassword(md5Password);
         //设置用户状态
         employee.setState("T");
         int i = employeeMapper.insert(employee);
@@ -79,6 +100,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 
+    /**
+     * 把员工辞退
+     * @param id
+     * @return
+     */
     @Override
     public Map<String, Object> dismissEmployeeById(Integer id) {
         //先查询出员工
@@ -110,6 +136,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         Map<String, Object> map = new HashMap<>();
         //先从数据库查询原来员工的数据， 然后与更新后的数据进行对比
         Employee oldEmployee = employeeMapper.selectById(employee.getId());
+        //如果密码发生变化，则进行密码加密
+        if (!oldEmployee.getPassword().equals(employee.getPassword())) {
+            employee.setPassword(MD5Util.getMD5(employee.getPassword(), 11));
+        }
         //如果职务发生变化，则在人事表插入一条记录
         if ((employee.getJob() == null && oldEmployee.getJob() != null) || !employee.getJob().equals(oldEmployee.getJob())) {
             Personnel personnel = new Personnel();
