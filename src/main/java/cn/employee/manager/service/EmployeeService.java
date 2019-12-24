@@ -22,4 +22,6 @@ public interface EmployeeService {
     Map<String, Object> add(Employee employee);
 
     Map<String, Object> dismissEmployeeById(Integer id);
+
+    Map<String, Object> update(Employee employee);
 }

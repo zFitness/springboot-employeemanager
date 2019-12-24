@@ -1,15 +1,148 @@
-2019-12-23 08:04:11.145 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Starting EmployeeMangerApplication on DESKTOP-FC3LVMM with PID 5712 (E:\wordspace\employeeManger\target\classes started by zfitness in E:\wordspace\employeeManger)
-2019-12-23 08:04:11.152 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - The following profiles are active: dev
-2019-12-23 08:04:11.256 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2019-12-23 08:04:11.257 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2019-12-23 08:04:12.894 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
-2019-12-23 08:04:12.906 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
-2019-12-23 08:04:12.921 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2019-12-23 08:04:12.923 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
-2019-12-23 08:04:13.037 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2019-12-23 08:04:13.037 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1780 ms
-2019-12-23 08:04:13.791 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2019-12-23 08:04:14.063 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2019-12-23 08:04:14.093 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8090"]
-2019-12-23 08:04:14.117 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8090 (http) with context path ''
-2019-12-23 08:04:14.120 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Started EmployeeMangerApplication in 3.567 seconds (JVM running for 4.976)
+2019-12-24 07:59:22.965 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Starting EmployeeMangerApplication on DESKTOP-FC3LVMM with PID 12872 (E:\wordspace\employeeManger\target\classes started by zfitness in E:\wordspace\employeeManger)
+2019-12-24 07:59:22.971 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - The following profiles are active: dev
+2019-12-24 07:59:23.024 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-24 07:59:23.024 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-24 07:59:24.724 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+2019-12-24 07:59:24.750 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2019-12-24 07:59:24.768 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-24 07:59:24.769 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-24 07:59:24.957 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-24 07:59:24.957 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1932 ms
+2019-12-24 07:59:26.690 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-24 07:59:27.332 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-12-24 07:59:27.412 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8090"]
+2019-12-24 07:59:27.482 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8090 (http) with context path ''
+2019-12-24 07:59:27.491 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Started EmployeeMangerApplication in 5.373 seconds (JVM running for 7.144)
+2019-12-24 08:00:10.159 [http-nio-8090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-24 08:00:10.165 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-12-24 08:00:10.175 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+2019-12-24 08:00:10.361 [http-nio-8090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-12-24 08:00:10.678 [http-nio-8090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-12-24 08:53:10.072 [Thread-15] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-24 08:53:10.091 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2019-12-24 08:53:10.112 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2019-12-24 08:53:11.522 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Starting EmployeeMangerApplication on DESKTOP-FC3LVMM with PID 12872 (E:\wordspace\employeeManger\target\classes started by zfitness in E:\wordspace\employeeManger)
+2019-12-24 08:53:11.523 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - The following profiles are active: dev
+2019-12-24 08:53:12.009 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+2019-12-24 08:53:12.011 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2019-12-24 08:53:12.011 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-24 08:53:12.012 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-24 08:53:12.059 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-24 08:53:12.060 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 534 ms
+2019-12-24 08:53:12.315 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2019-12-24 08:53:12.323 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-12-24 08:53:13.855 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Starting EmployeeMangerApplication on DESKTOP-FC3LVMM with PID 12872 (E:\wordspace\employeeManger\target\classes started by zfitness in E:\wordspace\employeeManger)
+2019-12-24 08:53:13.855 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - The following profiles are active: dev
+2019-12-24 08:53:14.450 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+2019-12-24 08:53:14.454 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2019-12-24 08:53:14.454 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-24 08:53:14.454 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-24 08:53:14.475 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-24 08:53:14.476 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 613 ms
+2019-12-24 08:53:14.753 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2019-12-24 08:53:14.762 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-12-24 08:56:09.671 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Starting EmployeeMangerApplication on DESKTOP-FC3LVMM with PID 14724 (E:\wordspace\employeeManger\target\classes started by zfitness in E:\wordspace\employeeManger)
+2019-12-24 08:56:09.675 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - The following profiles are active: dev
+2019-12-24 08:56:09.720 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-24 08:56:09.721 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-24 08:56:11.328 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+2019-12-24 08:56:11.343 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2019-12-24 08:56:11.352 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-24 08:56:11.353 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-24 08:56:11.445 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-24 08:56:11.445 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1724 ms
+2019-12-24 08:56:12.413 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-24 08:56:12.665 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-12-24 08:56:12.712 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8090"]
+2019-12-24 08:56:12.738 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8090 (http) with context path ''
+2019-12-24 08:56:12.743 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Started EmployeeMangerApplication in 3.947 seconds (JVM running for 5.72)
+2019-12-24 08:56:22.759 [http-nio-8090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-24 08:56:22.759 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-12-24 08:56:22.766 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2019-12-24 08:56:22.828 [http-nio-8090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-12-24 08:56:22.975 [http-nio-8090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-12-24 08:59:33.244 [Thread-11] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-24 08:59:33.245 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2019-12-24 08:59:33.252 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2019-12-24 08:59:34.164 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Starting EmployeeMangerApplication on DESKTOP-FC3LVMM with PID 14724 (E:\wordspace\employeeManger\target\classes started by zfitness in E:\wordspace\employeeManger)
+2019-12-24 08:59:34.164 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - The following profiles are active: dev
+2019-12-24 08:59:34.517 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+2019-12-24 08:59:34.519 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2019-12-24 08:59:34.520 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-24 08:59:34.520 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-24 08:59:34.557 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-24 08:59:34.557 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 391 ms
+2019-12-24 08:59:34.791 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2019-12-24 08:59:34.797 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-12-24 09:00:04.038 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Starting EmployeeMangerApplication on DESKTOP-FC3LVMM with PID 14724 (E:\wordspace\employeeManger\target\classes started by zfitness in E:\wordspace\employeeManger)
+2019-12-24 09:00:04.039 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - The following profiles are active: dev
+2019-12-24 09:00:04.442 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+2019-12-24 09:00:04.443 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2019-12-24 09:00:04.443 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-24 09:00:04.443 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-24 09:00:04.462 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-24 09:00:04.462 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 421 ms
+2019-12-24 09:00:04.676 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2019-12-24 09:00:04.684 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-12-24 09:04:31.599 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Starting EmployeeMangerApplication on DESKTOP-FC3LVMM with PID 8828 (E:\wordspace\employeeManger\target\classes started by zfitness in E:\wordspace\employeeManger)
+2019-12-24 09:04:31.602 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - The following profiles are active: dev
+2019-12-24 09:04:31.665 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-24 09:04:31.665 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-24 09:04:33.202 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+2019-12-24 09:04:33.243 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2019-12-24 09:04:33.266 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-24 09:04:33.268 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-24 09:04:33.541 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-24 09:04:33.542 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1877 ms
+2019-12-24 09:04:34.574 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-24 09:04:34.811 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-12-24 09:04:34.963 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8090"]
+2019-12-24 09:04:35.007 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8090 (http) with context path ''
+2019-12-24 09:04:35.011 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Started EmployeeMangerApplication in 4.09 seconds (JVM running for 5.618)
+2019-12-24 09:04:36.771 [http-nio-8090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-24 09:04:36.771 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-12-24 09:04:36.782 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2019-12-24 09:04:36.846 [http-nio-8090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-12-24 09:04:36.971 [http-nio-8090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-12-24 09:34:20.105 [Thread-12] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-24 09:34:20.106 [Thread-12] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2019-12-24 09:34:20.112 [Thread-12] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2019-12-24 09:34:20.902 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Starting EmployeeMangerApplication on DESKTOP-FC3LVMM with PID 8828 (E:\wordspace\employeeManger\target\classes started by zfitness in E:\wordspace\employeeManger)
+2019-12-24 09:34:20.902 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - The following profiles are active: dev
+2019-12-24 09:34:21.326 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+2019-12-24 09:34:21.327 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2019-12-24 09:34:21.327 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-24 09:34:21.327 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-24 09:34:21.359 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-24 09:34:21.359 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 455 ms
+2019-12-24 09:34:21.598 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2019-12-24 09:34:21.607 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-12-24 09:34:24.264 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Starting EmployeeMangerApplication on DESKTOP-FC3LVMM with PID 8828 (E:\wordspace\employeeManger\target\classes started by zfitness in E:\wordspace\employeeManger)
+2019-12-24 09:34:24.264 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - The following profiles are active: dev
+2019-12-24 09:34:24.574 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+2019-12-24 09:34:24.575 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2019-12-24 09:34:24.576 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-24 09:34:24.576 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-24 09:34:24.597 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-24 09:34:24.597 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 331 ms
+2019-12-24 09:34:24.911 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-24 09:34:24.994 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-12-24 09:34:25.007 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8090"]
+2019-12-24 09:34:25.010 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8090 (http) with context path ''
+2019-12-24 09:34:25.011 [restartedMain] INFO  cn.employee.manager.EmployeeMangerApplication - Started EmployeeMangerApplication in 0.785 seconds (JVM running for 1795.618)
+2019-12-24 09:34:25.013 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2019-12-24 09:34:35.670 [http-nio-8090-exec-1] INFO  o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-24 09:34:35.670 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-12-24 09:34:35.680 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2019-12-24 09:34:35.682 [http-nio-8090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2019-12-24 09:34:35.688 [http-nio-8090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.

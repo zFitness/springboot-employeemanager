@@ -79,6 +79,12 @@ public class EmployeeController {
         return employeeService.add(employee);
     }
 
+    @PostMapping("/update")
+    public Map<String, Object> updateUser(@RequestBody Employee employee) {
+        log.info(employee.toString());
+        return employeeService.update(employee);
+    }
+
     @GetMapping("/delete")
     public Result deleteEmployeeById(@RequestParam(name = "id") Integer id) {
         return employeeService.deleteEmployeeById(id);

@@ -1,5 +1,6 @@
 package cn.employee.manager.controller;
 
+import cn.employee.manager.dto.LoginDTO;
 import cn.employee.manager.dto.result.ResponseCode;
 import cn.employee.manager.dto.result.Result;
 import cn.employee.manager.entity.Employee;
@@ -35,10 +36,15 @@ public class AuthController {
         } else  {
             // 生成token
             String token = UUID.randomUUID().toString();
-            Map<String, Object> userInfo = new HashMap<>();
-            userInfo.put("token", token);
-            userInfo.put("userInfo", user);
-            return Result.success(userInfo);
+            LoginDTO loginDTO = new LoginDTO();
+            if (user.get(0).getAuthority() == 1) {
+                loginDTO.setSuper(true);
+            } else {
+                loginDTO.setSuper(false);
+            }
+            loginDTO.setToken(token);
+            loginDTO.setUserId(user.get(0).getId());
+            return Result.success(loginDTO);
         }
     }
 }

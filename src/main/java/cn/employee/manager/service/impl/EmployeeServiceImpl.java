@@ -3,13 +3,16 @@ package cn.employee.manager.service.impl;
 import cn.employee.manager.dto.EmployeeDTO;
 import cn.employee.manager.dto.result.Result;
 import cn.employee.manager.entity.Employee;
+import cn.employee.manager.entity.Job;
 import cn.employee.manager.entity.Personnel;
 import cn.employee.manager.mapper.EmployeeMapper;
+import cn.employee.manager.mapper.JobMapper;
 import cn.employee.manager.mapper.PersonnelMapper;
 import cn.employee.manager.service.EmployeeService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -19,11 +22,14 @@ import java.util.Map;
  * @author zfitness
  */
 @Service
+@Transactional
 public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeMapper employeeMapper;
     @Autowired
     private PersonnelMapper personnelMapper;
+    @Autowired
+    private JobMapper jobMapper;
 
     @Override
     public Result list(Integer current, Integer size, String name) {
@@ -91,5 +97,60 @@ public class EmployeeServiceImpl implements EmployeeService {
         map.put("code", 200);
         map.put("message", "辞退成功");
         return map;
+    }
+
+    /**
+     * 更新用户
+     * @param employee
+     * @return
+     */
+    @Override
+    public Map<String, Object> update(Employee employee) {
+
+        Map<String, Object> map = new HashMap<>();
+        //先从数据库查询原来员工的数据， 然后与更新后的数据进行对比
+        Employee oldEmployee = employeeMapper.selectById(employee.getId());
+        //如果职务发生变化，则在人事表插入一条记录
+        if ((employee.getJob() == null && oldEmployee.getJob() != null) || !employee.getJob().equals(oldEmployee.getJob())) {
+            Personnel personnel = new Personnel();
+            personnel.setPerson(employee.getId());
+            personnel.setTime(new Date());
+            personnel.setChangeId(1);
+            personnel.setDescription(changeDescription(oldEmployee.getJob(), employee.getJob()));
+            personnelMapper.insert(personnel);
+        }
+        int i = employeeMapper.updateById(employee);
+        if (i == 1) {
+            map.put("code", 200);
+            map.put("message", "更新成功");
+        } else {
+            map.put("code", 500);
+            map.put("message", "更新失败");
+        }
+        return map;
+    }
+
+    /**
+     * 生成一个工作变动的描述字符串
+     * @param jobId
+     * @param newJobId
+     * @return
+     */
+    public String changeDescription(Integer jobId, Integer newJobId) {
+        StringBuilder sb = new StringBuilder();
+        if (jobId == null) {
+            sb.append("分配了职位:");
+            Job job = jobMapper.selectById(newJobId);
+            sb.append(job.getDescription());
+        } else if (newJobId == null){
+            sb.append("解除了职位:");
+            Job job = jobMapper.selectById(jobId);
+            sb.append(job.getDescription());
+        } else {
+            Job job = jobMapper.selectById(jobId);
+            Job new_Job = jobMapper.selectById(newJobId);
+            sb.append("从职位").append(job.getDescription()).append("跳到").append(new_Job.getDescription());
+        }
+        return sb.toString();
     }
 }
