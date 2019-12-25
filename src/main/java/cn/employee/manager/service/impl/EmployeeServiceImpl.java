@@ -10,6 +10,7 @@ import cn.employee.manager.mapper.JobMapper;
 import cn.employee.manager.mapper.PersonnelMapper;
 import cn.employee.manager.service.EmployeeService;
 import cn.employee.manager.util.MD5Util;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -72,16 +74,26 @@ public class EmployeeServiceImpl implements EmployeeService {
      */
     @Override
     public Map<String, Object> add(Employee employee) {
+        Map<String,Object> resultMap = new HashMap<>(3);
+        //先根据邮箱查询用户是否存在，存在则返回提示消息
+        LambdaQueryWrapper<Employee> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Employee::getEmail, employee.getEmail());
+        List<Employee> employees = employeeMapper.selectList(wrapper);
+        // fixes bug  #逻辑问题,  employees 不为空
+        if (employees.size() != 0) {
+            resultMap.put("code", 500001);
+            resultMap.put("message", "邮箱已经存在");
+            return resultMap;
+        }
         //初始化默认密码
-        String password = "123";
-        //加密
-        String md5Password = MD5Util.getMD5(password, 11);
+        String md5Password = MD5Util.getMD5("123", 11);
         employee.setPassword(md5Password);
+
         //设置用户状态
         employee.setState("T");
         int i = employeeMapper.insert(employee);
-        Map<String,Object> map = new HashMap<>(3);
-        //插入成功，人事表需要插入一条记录
+
+        //如果插入成功，人事表需要插入'新员工加入'的记录
         if (i == 1) {
             Personnel personnel = new Personnel();
             //0代表新员工加入
@@ -90,13 +102,13 @@ public class EmployeeServiceImpl implements EmployeeService {
             personnel.setPerson(employee.getId());
             personnel.setTime(new Date());
             personnelMapper.insert(personnel);
-            map.put("code", 200);
-            map.put("msg", "插入成功");
-            return map;
+            resultMap.put("code", 200);
+            resultMap.put("message", "插入成功");
+            return resultMap;
         } else {
-            map.put("code", 500);
-            map.put("msg", "插入失败了");
-            return map;
+            resultMap.put("code", 500);
+            resultMap.put("message", "插入失败了");
+            return resultMap;
         }
     }
 
