@@ -13,6 +13,7 @@ public enum ResponseCode {
 	USER_NOT_FOUND(404, "用户不存在"),
 	PARAMETER_MISSING(600,"参数缺失"),
 	UNAUTHORIZED(401,"未授权"),
+	PASSWORD_ERROR(500050, "密码错误"),
 	// ..一真往后面加
 
 	//用户信息

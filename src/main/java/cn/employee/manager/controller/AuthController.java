@@ -19,6 +19,7 @@ import java.util.UUID;
 
 /**
  * 用户登录相关接口
+ *
  * @author zfitness
  */
 @RestController
@@ -31,22 +32,7 @@ public class AuthController {
     public Result login(@RequestParam(name = "email") String email,
                         @RequestParam(name = "password") String password) {
         //密码加密
-        List<Employee> user = authService.login(email, MD5Util.getMD5(password, 11));
+        return authService.login(email, MD5Util.getMD5(password, 11));
 
-        if (user == null || user.size() == 0) {
-            return Result.failure(ResponseCode.USER_NOT_FOUND);
-        } else  {
-            // 生成token
-            String token = UUID.randomUUID().toString();
-            LoginDTO loginDTO = new LoginDTO();
-            if (user.get(0).getAuthority() == 1) {
-                loginDTO.setSuper(true);
-            } else {
-                loginDTO.setSuper(false);
-            }
-            loginDTO.setToken(token);
-            loginDTO.setUserId(user.get(0).getId());
-            return Result.success(loginDTO);
-        }
     }
 }
