@@ -56,9 +56,3 @@ mvn clean package
 ```
 java -jar xxxxx.jar
 ```
-
-这是本人自己开发的小项目， 如果对您有用，可以请我喝一杯咖啡。
-
-![](./back/alipay.png)
-
-![](./back/wechatpay.png)
