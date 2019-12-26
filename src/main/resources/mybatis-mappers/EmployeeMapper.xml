@@ -61,4 +61,20 @@
           AND e.`edu_level` = ed.`code`
           AND e.id = ${id}
     </select>
+
+    <!-- 查询每个工作的员工人事 -->
+    <select id="getJobPersonsNumbers" resultType="cn.employee.manager.dto.JobPersonNumbers">
+        SELECT
+          j.description AS job,
+          e.number
+        FROM
+          (SELECT
+            job AS CODE,
+            COUNT(*) AS number
+          FROM
+            employee
+          GROUP BY job) AS e
+          INNER JOIN job j
+            ON e.code = j.`code`
+    </select>
 </mapper>

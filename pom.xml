@@ -31,7 +31,23 @@
 <!--			</exclusions>-->
 
 		</dependency>
-
+		<!-- websocket 支持 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+		<!-- hutool 日志类 -->
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-log</artifactId>
+			<version>5.1.0</version>
+		</dependency>
+		<!-- 微信扫码登录api -->
+		<dependency>
+			<groupId>com.github.binarywang</groupId>
+			<artifactId>wx-java-mp-spring-boot-starter</artifactId>
+			<version>3.6.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -78,7 +94,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>employeeManager</finalName>
+<!--		<finalName>employeeManager</finalName>-->
 	</build>
 
 </project>

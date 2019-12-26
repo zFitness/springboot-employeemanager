@@ -33,6 +33,6 @@ public class AuthController {
                         @RequestParam(name = "password") String password) {
         //密码加密
         return authService.login(email, MD5Util.getMD5(password, 11));
-
     }
+
 }

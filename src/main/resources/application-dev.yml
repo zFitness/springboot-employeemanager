@@ -10,3 +10,11 @@ spring:
   devtools:
     restart:
       additional-exclude: resources/**,static/**,templates/**
+
+# 公众号配置(必填)
+wx:
+  mp:
+    secret: fee54577dc7dd07fcabe520e9f4eea08
+    token: zmnb
+    app-id: wx1940424a60668730
+    aes-key:

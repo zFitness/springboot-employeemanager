@@ -22,6 +22,10 @@ public class JobController {
         return jobService.getJobPersonNumbers();
     }
 
+    /**
+     * 返回欢迎页面数据
+     * @return
+     */
     @GetMapping("/welcome")
     public Result getWelcome() {
         return jobService.welcome();

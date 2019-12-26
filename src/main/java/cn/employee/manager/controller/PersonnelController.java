@@ -16,6 +16,12 @@ public class PersonnelController {
     @Autowired
     private PersonnelService personnelService;
 
+    /**
+     * 所以人事记录接口
+     * @param current
+     * @param size
+     * @return
+     */
     @GetMapping("/list")
     public Result list(@RequestParam(name = "current", required = false, defaultValue = "1") Integer current,
                        @RequestParam(name = "size", required = false, defaultValue = "10") Integer size) {

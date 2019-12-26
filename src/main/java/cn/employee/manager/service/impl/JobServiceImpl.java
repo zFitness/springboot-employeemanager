@@ -38,25 +38,7 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public Result getJobPersonNumbers() {
-        //先把所以工作查出来
-        List<Job> jobs = jobMapper.selectList(null);
-        // 需要返回的数据
-        List<JobPersonNumbers> jobPersonNumbers = new ArrayList<>();
-
-        if (jobs != null) {
-            for (Job job : jobs) {
-                LambdaQueryWrapper<Employee> wrapper = new LambdaQueryWrapper<>();
-                wrapper.eq(Employee::getJob, job.getCode());
-                Integer count = employeeMapper.selectCount(wrapper);
-                JobPersonNumbers jobNumbers = new JobPersonNumbers();
-                jobNumbers.setJob(job.getDescription());
-                jobNumbers.setNumber(count);
-                jobPersonNumbers.add(jobNumbers);
-            }
-            return Result.success(jobPersonNumbers);
-        } else {
-            return Result.failure();
-        }
+      return Result.success(employeeMapper.getJobPersonsNumbers());
     }
 
     @Override

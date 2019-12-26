@@ -1,6 +1,7 @@
 package cn.employee.manager.mapper;
 
 import cn.employee.manager.dto.EmployeeDTO;
+import cn.employee.manager.dto.JobPersonNumbers;
 import cn.employee.manager.entity.Employee;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -8,6 +9,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * 操作员工表
@@ -29,4 +32,6 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
      * @return
      */
     EmployeeDTO getUserById(@Param("id") Integer id);
+
+    List<JobPersonNumbers> getJobPersonsNumbers();
 }
