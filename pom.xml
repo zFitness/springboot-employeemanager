@@ -42,6 +42,11 @@
 			<artifactId>hutool-log</artifactId>
 			<version>5.1.0</version>
 		</dependency>
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-json</artifactId>
+			<version>5.1.0</version>
+		</dependency>
 		<!-- 微信扫码登录api -->
 		<dependency>
 			<groupId>com.github.binarywang</groupId>

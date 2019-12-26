@@ -1,19 +1,22 @@
 package cn.employee.manager.socket;
 
 
-import cn.hutool.log.Log;
-import cn.hutool.log.LogFactory;
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  * websocket 服务端
  * 注意： websocket 不能被代理，还有下面几个注解修饰的方法必须是public的
+ *
  * @author zfitness
  */
 
@@ -50,7 +53,7 @@ public class WebSocketServer {
      * websocket 连接断开调用的方法
      */
     @OnClose
-    public void onClose(){
+    public void onClose() {
         webSocketSet.remove(this);
         subOnlineCount();
         log.info("断开websocket一个连接，现在连接数:" + getOnlineCount());
@@ -58,6 +61,7 @@ public class WebSocketServer {
 
     /**
      * 收到消息调用此方法
+     *
      * @param message
      * @param session
      */
@@ -65,7 +69,7 @@ public class WebSocketServer {
     public void onMessage(String message, Session session) {
         log.info("websocket 收到消息了: " + message);
         try {
-            this.sendMessage("hello, too!!!");
+            sendInfo("hello, too!!!", "text");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -73,6 +77,7 @@ public class WebSocketServer {
 
     /**
      * 发生错误调用的方法
+     *
      * @param session
      * @param throwable
      */
@@ -86,8 +91,29 @@ public class WebSocketServer {
      * 实现主动推送消息到客户端
      */
     public void sendMessage(String message) throws IOException {
-        this.session.getBasicRemote().sendText(message);
+        if (session != null) {
+            this.session.getBasicRemote().sendText(message);
+        } else {
+            log.info("session为空");
+        }
     }
+
+    public static void sendInfo(Object message, String type) throws IOException {
+        log.info("推送消息到窗口，推送内容:" + message);
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("type", type);
+        resultMap.put("message", message);
+        JSONObject jsonObject = JSONUtil.parseObj(resultMap);
+        for (WebSocketServer item : webSocketSet) {
+            try {
+                //这里可以设定只推送给这个sid的，为null则全部推送
+                item.sendMessage(jsonObject.toString());
+            } catch (IOException e) {
+                continue;
+            }
+        }
+    }
+
     public static synchronized int getOnlineCount() {
         return onlineCount;
     }

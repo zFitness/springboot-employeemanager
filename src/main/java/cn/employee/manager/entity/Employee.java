@@ -35,4 +35,5 @@ public class Employee {
     private String email;
     private String state;
     private String remark;
+    private String openid;
 }

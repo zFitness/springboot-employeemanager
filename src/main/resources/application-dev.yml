@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 8080
 
 spring:
   datasource:
@@ -14,7 +14,10 @@ spring:
 # 公众号配置(必填)
 wx:
   mp:
-    secret: fee54577dc7dd07fcabe520e9f4eea08
-    token: zmnb
-    app-id: wx1940424a60668730
-    aes-key:
+    configs:
+      - appId: wx1940424a60668730
+        secret: fee54577dc7dd07fcabe520e9f4eea08
+        token: zmnb
+        aesKey:
+
+
