@@ -60,6 +60,7 @@ public class WxRedirectController {
         if (employee != null) {
             LoginDTO loginDTO = new LoginDTO();
             loginDTO.setUserId(employee.getId());
+            loginDTO.setAvator_url(user.getHeadImgUrl());
             loginDTO.setToken(UUID.randomUUID().toString());
             if (employee.getAuthority() == 1) {
                 loginDTO.setSuper(true);
