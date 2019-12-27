@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 员工操作相关业务类
  * @author zfitness
  */
 @Service
@@ -170,6 +171,15 @@ public class EmployeeServiceImpl implements EmployeeService {
             map.put("message", "更新失败");
         }
         return map;
+    }
+
+    /**
+     * 返回员工地图分布信息
+     * @return
+     */
+    @Override
+    public Result getMap() {
+        return Result.success(employeeMapper.map());
     }
 
     /**

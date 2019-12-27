@@ -1,5 +1,6 @@
 package cn.employee.manager.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -12,7 +13,7 @@ import lombok.Data;
 @Data
 @TableName("dept_manager")
 public class DeptManager {
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
     @TableField("dept_id")
     private Integer deptId;

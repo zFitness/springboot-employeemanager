@@ -1,6 +1,7 @@
 package cn.employee.manager.mapper;
 
 import cn.employee.manager.dto.EmployeeDTO;
+import cn.employee.manager.dto.EmployeeMapDTO;
 import cn.employee.manager.dto.JobPersonNumbers;
 import cn.employee.manager.entity.Employee;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -34,4 +35,6 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
     EmployeeDTO getUserById(@Param("id") Integer id);
 
     List<JobPersonNumbers> getJobPersonsNumbers();
+
+    List<EmployeeMapDTO> map();
 }

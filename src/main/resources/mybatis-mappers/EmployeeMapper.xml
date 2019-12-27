@@ -77,4 +77,14 @@
           INNER JOIN job j
             ON e.code = j.`code`
     </select>
+
+    <!-- 查询员工分布-->
+    <select id="map" resultType="cn.employee.manager.dto.EmployeeMapDTO">
+        SELECT
+          address,
+          COUNT(*) AS number
+        FROM
+          employee
+        GROUP BY address ;
+    </select>
 </mapper>

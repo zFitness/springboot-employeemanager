@@ -132,4 +132,9 @@ public class EmployeeController {
         info.put("eduLevels", eduLevelMapper.selectList(null));
         return Result.success(info);
     }
+
+    @GetMapping("/map")
+    public Result getMap() {
+        return employeeService.getMap();
+    }
 }
